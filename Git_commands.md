@@ -116,9 +116,11 @@
 
  	git rebase -i <ref>~n		将HEAD前n个记录进行交互式rebase
 
+ 	git pull --rebase	从远处下载，并将记录移到新下载的记录之前
+
 ###### 关于移动分支
 
-&nbsp;	git branch -f \[name1] \[name2]		将name1分支移动到name2分支对应的记录上
+ 	git branch -f \[name1] \[name2]		将name1分支移动到name2分支对应的记录上
 
 ###### 关于reset和revert
 
@@ -134,15 +136,37 @@
 
  	git describe <ref>	查看离<ref>最近的标签,输出格式为<tag>-<numCommits>-g<hash>,当ref上有标签时，只输出标签名称
 
+###### 关于远程追踪
+
+ 	git checkout -b \[name] o/main		创建一个新分支并追踪远程main
+
+ 	git branch -u o/main \[name]		设置\[name]远程追踪，\[name]可以为空，为空时指定当前HEAD
+
+关于远程追踪指令的参数
+
+ 	git push origin \[name]	更新本地仓库\[name]分支的记录到对应的远程仓库分支
+
+ 	git push origin <source>:<destinaition>	更新本地仓库\[name]分支的记录到指定的远程仓库分支，如果远程分支不存在，则会自动创建；如果<source>为空，则**删除**远程仓库的指定分支
+
+ 	git fetch origin \[name]	下载远程仓库分支的记录到对应的本地分支o/name
+
+ 	git fetch origin <source>:<destinaition>		下载远程仓库的记录到指定的本地分支，如果分支不存在，则会自动创建；如果<source>为空，则在本地仓库**创建**指定分支
+
+ 	git pull origin foo	相当于git fetch origin foo; git merge o/foo
+
+ 	git pull origin bar:bugFix	相当于git fetch origin bar:bugFix; git merge bugFix
+
+ 
 
 
 
 
 
 
-朋友————————————————>习惯了一个人的存在———————————>喜欢
 
-和一个人可以很好的相处，无所谓得失——>和一个人可以很好的相处，但是害怕失去——>和一个人可以很好的相处，害怕失去，同时相处得很开心
+朋友---------------------------------------------------->习惯了一个人的存在--------------------------------->喜欢
 
-比如说无所谓他跟别的女生怎么怎么样——>我们可以不怎么说话，我知道你一直在就行——>我喜欢你，做什么事都会想到你，好想找你
+和一个人可以很好的相处，无所谓得失------->和一个人可以很好的相处，但是害怕失去------->和一个人可以很好的相处，害怕失去，同时相处得很开心
+
+比如说无所谓他跟别的女生怎么怎么样-------->我们可以不怎么说话，我知道你一直在就行------>我喜欢你，做什么事都会想到你，好想找你
 
